@@ -39,7 +39,7 @@ async def scrape_routes(url, threshold=None):
                 all_routes.append(route_template)
                 print(f"{len(all_routes)} scraped routes from {url}")
                 if threshold is not None and len(all_routes) >= threshold:
-                    print(f"Threshold of {threshold} reached, stopping scrape.")
+                    print(f"Threshold of {threshold} reached, stopping Great Runs scrape.")
                     await browser.close()
                     return all_routes
                 count += 1

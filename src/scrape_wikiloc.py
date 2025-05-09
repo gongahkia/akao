@@ -63,7 +63,7 @@ async def scrape_routes(url, threshold=None):
                 print(f'{len(all_routes)} scraped routes from {current_url}')
                 route_id += 1
                 if threshold is not None and len(all_routes) >= threshold:
-                    print(f"Threshold of {threshold} reached, stopping scrape.")
+                    print(f"Threshold of {threshold} reached, stopping Wikiloc scrape.")
                     await browser.close()
                     return all_routes
             pagination_div = await page.query_selector('div.pagination')
