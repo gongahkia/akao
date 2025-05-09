@@ -1,8 +1,9 @@
+import asyncio
 from playwright.async_api import async_playwright
 
 async def click_initial_popup(page):
     try:
-        popup = await page.query_selector('.css-8riygdif')
+        popup = await page.query_selector('div.qc-cmp2-summary-buttons button.css-8riygd')
         if popup:
             await popup.click()
             print("Initial popup clicked.")
@@ -13,12 +14,11 @@ async def handle_google_vignette(page):
     try:
         current_url = page.url
         if "#google_vignette" in current_url:
-            print("Google vignette detected, attempting to dismiss...")
-            dismiss_btn = await page.wait_for_selector('div#dismiss-button', timeout=5000)
-            if dismiss_btn:
-                await dismiss_btn.click()
-                print("Google vignette dismissed.")
-                return True
+            print("Google vignette detected, removing fragment and reloading...")
+            clean_url = current_url.replace("#google_vignette", "")
+            await page.goto(clean_url)
+            print("Reloaded page without #google_vignette.")
+            return True
     except Exception as e:
         print(f"Could not handle google vignette: {e}")
     return False
@@ -69,6 +69,7 @@ async def scrape_routes(url):
                 route_template['route_elevation_gain'] = await tds[7].inner_text()
                 route_template['route_terrain_type'] = await tds[8].inner_text()
                 route_template['route_number_views'] = await tds[9].inner_text()
+                print(route_template)
                 all_routes.append(route_template)
             await asyncio.sleep(5)
             if await handle_google_vignette(page):
