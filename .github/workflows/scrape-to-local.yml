@@ -27,8 +27,16 @@ jobs:
         run: playwright install --with-deps chromium
 
       - name: Run Scraper Scripts
+        working-directory: ./src
         run: |
             echo "Running scraper scripts."
-            cd src
             python main.py
             echo "Finished running scraper scripts."
+      
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add data/routes.json
+          git commit -m "Update routes.json"
+          git push
