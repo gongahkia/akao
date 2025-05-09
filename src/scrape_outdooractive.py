@@ -8,17 +8,34 @@ async def scrape_routes(url, threshold=None):
         browser = await p.chromium.launch(headless=True)
         page = await browser.new_page()
         await page.goto(url)
+        dialog = await page.query_selector('div#oax-dialog-main')
+        if dialog:
+            footer = await dialog.query_selector(
+                'div.oax_modal_footer_wrap.oax_full.oax_pad_left_16.oax_pad_right_16.oax_marg_top_22.oax_marg_bottom_11'
+            )
+            if footer:
+                buttons = await footer.query_selector_all('button')
+                for btn in buttons:
+                    text = (await btn.inner_text()).strip()
+                    if text == "Accept all":
+                        print("Clicked accept all button")
+                        await btn.click()
+                        await sleep(1)
+                        break
         all_routes = []
         count = 0
         oax_dp_list = await page.query_selector('div.oax_dp_list')
         if oax_dp_list:
-            checkmark_span = await oax_dp_list.query_selector('span.oax-icon-checkmark')
-            if checkmark_span:
-                parent_label = await checkmark_span.evaluate_handle('(el) => el.parentElement')
-                label_text = await parent_label.evaluate('(el) => el.innerText')
-                if label_text.strip() == 'Show all':
-                    await checkmark_span.click()
-                    await sleep(1)  
+            prev_height = -1
+            max_scrolls = 30  
+            for _ in range(max_scrolls):
+                curr_height = await oax_dp_list.evaluate('(el) => el.scrollHeight')
+                await oax_dp_list.evaluate('(el) => { el.scrollTop = el.scrollHeight; }')
+                await sleep(5)
+                new_height = await oax_dp_list.evaluate('(el) => el.scrollHeight')
+                if new_height == prev_height:
+                    break
+                prev_height = new_height
             route_elements = await oax_dp_list.query_selector_all('div.oax-mapList-snippet.oax-id')
             for elem in route_elements:
                 class_attr = await elem.get_attribute('class')
@@ -50,6 +67,7 @@ async def scrape_routes(url, threshold=None):
                         'route_terrain_type': route_terrain_type,
                         'route_number_views': ''
                     }
+                    print(route_template)
                     all_routes.append(route_template)
                     count += 1
                     if threshold is not None and len(all_routes) >= threshold:
