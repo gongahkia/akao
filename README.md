@@ -58,7 +58,7 @@ Use the live website [***here***]().
 | [Great Runs](https://greatruns.com/) | ![](https://img.shields.io/badge/Status-Supported-brightgreen) | None |
 | [Outdooractive](https://www.outdooractive.com/en/) | ![](https://img.shields.io/badge/Status-Supported-brightgreen) | |
 | [Plotaroute](https://www.plotaroute.com/) | ![](https://img.shields.io/badge/Status-Supported-brightgreen) | 100 |
-| [RunGo](https://www.rungoapp.com/) | ![](https://img.shields.io/badge/Status-Supported-brightgreen) | |
+| [RunGo](https://www.rungoapp.com/) | ![](https://img.shields.io/badge/Status-Supported-brightgreen) | 100 |
 | [Wikiloc](https://www.wikiloc.com/) | ![](https://img.shields.io/badge/Status-Supported-brightgreen) | 100 | 
 | [Strava](https://www.strava.com/) | ![](https://img.shields.io/badge/Status-Unsupported-red) | |
 | [AllTrails](https://www.alltrails.com/) | ![](https://img.shields.io/badge/Status-Unsupported-red) | |
