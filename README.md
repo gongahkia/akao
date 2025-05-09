@@ -57,5 +57,5 @@
 The name `Akao` is in reference to [Rion Akao](https://sakamoto-days.fandom.com/wiki/Rion_Akao), a close friend of [Taro Sakamoto](https://sakamoto-days.fandom.com/wiki/Taro_Sakamoto) and [Yoichi Nagumo](https://sakamoto-days.fandom.com/wiki/Yoichi_Nagumo) from their time as students at [JCC](https://sakamoto-days.fandom.com/wiki/Japan_Clear_Creation). She first appears in the [Taro Sakamoto's Past Arc](https://sakamoto-days.fandom.com/wiki/Taro_Sakamoto%27s_Past_Arc) under the ongoing manga series [Sakamoto Days](https://sakamoto-days.fandom.com/wiki/Sakamoto_Days_Wiki).
 
 <div align="center">
-    <img src="./asset/logo/akao.webp">
+    <img src="./asset/logo/akao.webp"
 </div>
