@@ -41,7 +41,7 @@ Use the live website [***here***]().
 <br>
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="./asset/reference/5.png" width="49%">q
+  <img src="./asset/reference/5.png" width="49%">
   <img src="./asset/reference/6.png" width="49%">
 </div>
 
