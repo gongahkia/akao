@@ -67,8 +67,9 @@ async def scrape_routes(url, threshold=None):
                         'route_terrain_type': route_terrain_type,
                         'route_number_views': ''
                     }
-                    print(route_template)
+                    # print(route_template)
                     all_routes.append(route_template)
+                    print(f"{len(all_routes)} scraped routes from {url}")
                     count += 1
                     if threshold is not None and len(all_routes) >= threshold:
                         await browser.close()
