@@ -9,15 +9,44 @@
 
 ...
 
-## Usage
-
-...
-
 ## Stack
 
 * *Frontend*: [Svelte](https://svelte.dev/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * *Backend*: [Github Actions](https://github.com/features/actions), [Python](https://www.python.org/)
 * *Package*: [Docker](https://www.docker.com/)
+
+## Screenshots
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="./asset/reference/1.png" width="49%">
+  <img src="./asset/reference/2.png" width="49%">
+</div>
+
+<br>
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="./asset/reference/3.png" width="49%">
+  <img src="./asset/reference/4.png" width="49%">
+</div>
+
+<br>
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="./asset/reference/5.png" width="49%">q
+  <img src="./asset/reference/6.png" width="49%">
+</div>
+
+## Coverage
+
+`Akao` currently scrapes the following sites monthly.
+
+| Site | Status |
+| :--- | :--- |
+| [plotaroute](https://www.plotaroute.com/) | ![](https://img.shields.io/badge/Status-Supported-brightgreen) |
+
+## Usage
+
+...
 
 ## Architecture
 
