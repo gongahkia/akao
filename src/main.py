@@ -24,7 +24,7 @@ async def main(url_map, filepath):
             greatruns.scrape_routes(url_map["greatruns"]["url"], url_map["greatruns"]["threshold"]),
             # outdooractive.scrape_routes(url_map["outdooractive"]["url"], url_map["outdooractive"]["threshold"]),
             plotaroute.scrape_routes(url_map["plotaroute"]["url"], url_map["plotaroute"]["threshold"]),
-            # rungo.scrape_routes(url_map["rungo"]["url"], url_map["rungo"]["threshold"]),
+            rungo.scrape_routes(url_map["rungo"]["url"], url_map["rungo"]["threshold"]),
             wikiloc.scrape_routes(url_map["wikiloc"]["url"], url_map["wikiloc"]["threshold"]),
         )
         combined_results = [route for route_list in results for route in route_list] 
@@ -42,10 +42,10 @@ if __name__ == "__main__":
             "url": "https://www.plotaroute.com/search?keyword=singapore",
             "threshold": 100,
         },
-        # "rungo": {
-        #     "url": "https://routes.rungoapp.com/routes?search=singapore",
-        #     "threshold": 100,
-        # },
+        "rungo": {
+            "url": "https://routes.rungoapp.com/routes?search=singapore&minDistance=3&maxDistance=10&units=imperial&lat=0&lng=0&geoBox=null",
+            "threshold": 100,
+        },
         "greatruns": {
             "url": "https://greatruns.com/location/singapore/",
             "threshold": 100,
