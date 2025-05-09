@@ -1,0 +1,2 @@
+# https://www.outdooractive.com/en/routes/#area=1019113&filter=r-fullyTranslatedLangus-en,r-openState-,sb-sortedBy-0&wt=Singapore%20(Country)%0A1019113&zc=11.,103.81943,1.35119
+# fallback is --> https://www.outdooractive.com/en/running-routes/singapore/running-in-singapore/137993227/
