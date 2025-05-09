@@ -23,18 +23,21 @@ async def handle_google_vignette(page):
         print(f"Could not handle google vignette: {e}")
     return False
 
-async def scrape_routes(url):
+async def scrape_routes(url, threshold=None):
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=False)
+        browser = await p.chromium.launch(headless=True)
         page = await browser.new_page()
         await page.goto(url)
         await click_initial_popup(page)
+        traversed_urls = set()
         all_routes = []
         while True:
-            if await handle_google_vignette(page):
-                await page.goto(url)
-                await click_initial_popup(page)
-                continue
+            await handle_google_vignette(page)
+            current_url = page.url
+            if current_url in traversed_urls:
+                print(f"Already visited {current_url}, skipping.")
+                break
+            traversed_urls.add(current_url)
             results_div = await page.query_selector('#ResultsDiv')
             if not results_div:
                 break
@@ -43,51 +46,44 @@ async def scrape_routes(url):
                 break
             rows = await results_table.query_selector_all('tr')
             for row in rows:
-                route_template = {
-                    'ID': None,
-                    'route_name': None,
-                    'route_url': None,
-                    'location': None,
-                    'country': None,
-                    'route_activity_type': None,
-                    'route_distance': None,
-                    'route_elevation_gain': None,
-                    'route_terrain_type': None,
-                    'route_number_views': None
-                }
                 tds = await row.query_selector_all('td')
                 if len(tds) < 10:
                     continue
-                route_template['ID'] = await tds[0].inner_text()
-                route_template['route_name'] = await tds[1].inner_text()
-                anchor = await tds[1].query_selector('a')
-                route_template['route_url'] = await anchor.get_attribute('href') if anchor else None
-                route_template['location'] = await tds[2].inner_text()
-                route_template['country'] = await tds[3].inner_text()
-                route_template['route_activity_type'] = await tds[5].inner_text()
-                route_template['route_distance'] = await tds[6].inner_text()
-                route_template['route_elevation_gain'] = await tds[7].inner_text()
-                route_template['route_terrain_type'] = await tds[8].inner_text()
-                route_template['route_number_views'] = await tds[9].inner_text()
-                print(route_template)
+                route_template = {
+                    'ID': await tds[0].inner_text(),
+                    'route_name': await tds[1].inner_text(),
+                    'route_url': f'https://www.plotaroute.com{await (await tds[1].query_selector('a')).get_attribute('href') if await tds[1].query_selector('a') else None}',
+                    'location': await tds[2].inner_text(),
+                    'country': await tds[3].inner_text(),
+                    'route_activity_type': await tds[5].inner_text(),
+                    'route_distance': await tds[6].inner_text(),
+                    'route_elevation_gain': await tds[7].inner_text(),
+                    'route_terrain_type': await tds[8].inner_text(),
+                    'route_number_views': await tds[9].inner_text()
+                }
                 all_routes.append(route_template)
-            await asyncio.sleep(5)
-            if await handle_google_vignette(page):
-                await page.goto(url)
-                await click_initial_popup(page)
-                continue
+                print(f'{len(all_routes)} scraped routes from {current_url}')
+                if threshold is not None and len(all_routes) >= threshold:
+                    print(f"Threshold of {threshold} reached, stopping scrape.")
+                    await browser.close()
+                    return all_routes
             pagination = await page.query_selector('ul.pagenos')
             if not pagination:
                 break
             page_items = await pagination.query_selector_all('a')
-            if not page_items:
-                break
-            last_item = page_items[-1]
-            last_text = await last_item.inner_text()
-            if last_text.strip().lower() == 'next':
-                await last_item.click()
-                await page.wait_for_load_state('networkidle')
-                print("navigating to next page...")
+            next_url = None
+            for item in page_items:
+                text = await item.inner_text()
+                if text.strip().lower() == 'next':
+                    next_url = await item.get_attribute('href')
+                    break
+            if next_url:
+                from urllib.parse import urljoin
+                next_url = urljoin(page.url, next_url)
+                if next_url in traversed_urls:
+                    print(f"Already traversed {next_url}, stopping.")
+                    break
+                await page.goto(next_url)
             else:
                 break
         await browser.close()
