@@ -1,7 +1,5 @@
 # notes
-    # use threads if necessary to centralise everything
     # everything should be run through this single script and logging should be handled through here as well
-    # 
 
 # remaining scrapers to implement 
     # https://routes.rungoapp.com/

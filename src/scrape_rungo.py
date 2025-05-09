@@ -1,0 +1,2 @@
+# https://routes.rungoapp.com/routes?search=singapore
+# https://routes.rungoapp.com/routes?search=singapore&minDistance=3&maxDistance=10&units=imperial&lat=0&lng=0&geoBox=null
