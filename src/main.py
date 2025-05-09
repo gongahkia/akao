@@ -25,7 +25,7 @@ async def main(url_map, filepath):
             # outdooractive.scrape_routes(url_map["outdooractive"]["url"], url_map["outdooractive"]["threshold"]),
             plotaroute.scrape_routes(url_map["plotaroute"]["url"], url_map["plotaroute"]["threshold"]),
             # rungo.scrape_routes(url_map["rungo"]["url"], url_map["rungo"]["threshold"]),
-            # wikiloc.scrape_routes(url_map["wikiloc"]["url"], url_map["wikiloc"]["threshold"]),
+            wikiloc.scrape_routes(url_map["wikiloc"]["url"], url_map["wikiloc"]["threshold"]),
         )
         combined_results = [route for route_list in results for route in route_list] 
         save_routes_to_json(combined_results, filepath)
@@ -54,10 +54,10 @@ if __name__ == "__main__":
         #     "url": "https://www.outdooractive.com/en/routes/#area=1019113&filter=r-fullyTranslatedLangus-en,r-openState-,sb-sortedBy-0&wt=Singapore%20(Country)%0A1019113&zc=11.,103.81943,1.35119",
         #     "threshold": 100,
         # },
-        # "wikiloc": {
-        #     "url": "https://www.wikiloc.com/trails/running/singapore",
-        #     "threshold": 100,
-        # },
+        "wikiloc": {
+            "url": "https://www.wikiloc.com/trails/running/singapore",
+            "threshold": 100,
+        },
     }
     filepath = "../data/routes.json"
     asyncio.run(main(url_map, filepath))

@@ -1,6 +1,5 @@
 # https://www.plotaroute.com/search?keyword=singapore
 
-import asyncio
 from playwright.async_api import async_playwright
 
 async def click_initial_popup(page):
