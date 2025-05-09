@@ -9,7 +9,7 @@
 
 Use the live website [***here***]().
 
-Sites are scraped monthly on [SGT Monday 12am](#architecture).
+[Sites](#coverage) are scraped monthly on [SGT Monday 12am](#architecture).
 
 > [!IMPORTANT]  
 > Read the [legal disclaimer](#legal-disclaimer) before using `Akao`.  
