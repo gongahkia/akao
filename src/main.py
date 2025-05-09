@@ -2,7 +2,6 @@
 
 import json
 import asyncio
-import scrape_alltrails as alltrails
 import scrape_greatruns as greatruns
 import scrape_outdooractive as outdooractive
 import scrape_plotaroute as plotaroute
@@ -22,7 +21,6 @@ def save_routes_to_json(routes, filepath="routes.json"):
 async def main(url_map, filepath):
     try:
         results = await asyncio.gather(
-            # alltrails.scrape_routes(url_map["alltrails"]["url"], url_map["alltrails"]["threshold"]),
             greatruns.scrape_routes(url_map["greatruns"]["url"], url_map["greatruns"]["threshold"]),
             # outdooractive.scrape_routes(url_map["outdooractive"]["url"], url_map["outdooractive"]["threshold"]),
             plotaroute.scrape_routes(url_map["plotaroute"]["url"], url_map["plotaroute"]["threshold"]),
@@ -46,10 +44,6 @@ if __name__ == "__main__":
         },
         # "rungo": {
         #     "url": "https://routes.rungoapp.com/routes?search=singapore",
-        #     "threshold": 100,
-        # },
-        # "alltrails": {
-        #     "url": "https://www.alltrails.com/singapore/trail-running",
         #     "threshold": 100,
         # },
         "greatruns": {

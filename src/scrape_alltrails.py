@@ -1,1 +1,0 @@
-# https://www.alltrails.com/singapore/trail-running
