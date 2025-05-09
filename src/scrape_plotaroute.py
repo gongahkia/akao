@@ -1,15 +1,40 @@
-# https://www.plotaroute.com
-
 from playwright.async_api import async_playwright
-import asyncio
+
+async def click_initial_popup(page):
+    try:
+        popup = await page.query_selector('.css-8riygdif')
+        if popup:
+            await popup.click()
+            print("Initial popup clicked.")
+    except Exception as e:
+        print(f"Initial popup not found or could not be clicked: {e}")
+
+async def handle_google_vignette(page):
+    try:
+        current_url = page.url
+        if "#google_vignette" in current_url:
+            print("Google vignette detected, attempting to dismiss...")
+            dismiss_btn = await page.wait_for_selector('div#dismiss-button', timeout=5000)
+            if dismiss_btn:
+                await dismiss_btn.click()
+                print("Google vignette dismissed.")
+                return True
+    except Exception as e:
+        print(f"Could not handle google vignette: {e}")
+    return False
 
 async def scrape_routes(url):
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
+        browser = await p.chromium.launch(headless=False)
         page = await browser.new_page()
         await page.goto(url)
+        await click_initial_popup(page)
         all_routes = []
         while True:
+            if await handle_google_vignette(page):
+                await page.goto(url)
+                await click_initial_popup(page)
+                continue
             results_div = await page.query_selector('#ResultsDiv')
             if not results_div:
                 break
@@ -44,13 +69,16 @@ async def scrape_routes(url):
                 route_template['route_elevation_gain'] = await tds[7].inner_text()
                 route_template['route_terrain_type'] = await tds[8].inner_text()
                 route_template['route_number_views'] = await tds[9].inner_text()
-                print(route_template)
                 all_routes.append(route_template)
             await asyncio.sleep(5)
+            if await handle_google_vignette(page):
+                await page.goto(url)
+                await click_initial_popup(page)
+                continue
             pagination = await page.query_selector('ul.pagenos')
             if not pagination:
                 break
-            page_items = await pagination.query_selector_all('li')
+            page_items = await pagination.query_selector_all('a')
             if not page_items:
                 break
             last_item = page_items[-1]
@@ -62,4 +90,5 @@ async def scrape_routes(url):
             else:
                 break
         await browser.close()
+        print(f'{len(all_routes)} routes scraped')
         return all_routes
