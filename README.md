@@ -4,7 +4,9 @@
 
 # `Akao`
 
-...
+[Endurance](https://www.asics.com/sg/en-sg/mk/blog/article/how-to-improve-your-endurance?srsltid=AfmBOoqOyyg9B_q6uump-LDfLZwIIo_b92mBMke0z0bg_jKd2Ul8tqqD) should be the difficult part of [cardio](https://en.wikipedia.org/wiki/Aerobic_exercise).  
+
+Finding an [exercise route](https://www.reddit.com/r/running/comments/rx0nkz/how_do_you_find_a_route_when_you_dont_know_the/?rdt=59295) shouldn't be.
 
 ## Usage
 
@@ -17,7 +19,11 @@ Use the live website [***here***](https://akao-lyart.vercel.app/).
 
 ## Rationale
 
-...
+As someone who runs [relatively often](./asset/reference/me.jpeg), it frustrated me how needlessly difficult it was to find suitable running routes in my area.
+
+With that in mind, I threw together `Akao` over the period of [2 days](https://github.com/gongahkia/akao/commit/07beec228a9627be5bd0a2cccb9b84ce584ce9ef).
+
+`Akao` simplifies the process by curating ***all vital information*** at [a glance](#screenshots) and delivering you cycling, running and walking routes *(scraped monthly from [trusted sites](#coverage))* in a single, [streamlined](https://www.oracle.com/sg/retail/omnichannel/what-is-omnichannel/) Web App.
 
 ## Stack
 
@@ -27,22 +33,29 @@ Use the live website [***here***](https://akao-lyart.vercel.app/).
 
 ## Screenshots
 
+### Main page
+
 <div style="display: flex; justify-content: space-between;">
   <img src="./asset/reference/1.png" width="49%">
+</div>
+
+### Filtering by Name, Location, Country, Activity type, Terrain type
+
+<div style="display: flex; justify-content: space-between;">
   <img src="./asset/reference/2.png" width="49%">
-</div>
-
-<br>
-
-<div style="display: flex; justify-content: space-between;">
   <img src="./asset/reference/3.png" width="49%">
-  <img src="./asset/reference/4.png" width="49%">
 </div>
 
 <br>
 
 <div style="display: flex; justify-content: space-between;">
+  <img src="./asset/reference/4.png" width="49%">
   <img src="./asset/reference/5.png" width="49%">
+</div>
+
+<br>
+
+<div style="display: flex; justify-content: space-between;">
   <img src="./asset/reference/6.png" width="49%">
 </div>
 
@@ -73,7 +86,7 @@ Report any issues to [gabrielzmong@gmail.com](mailto:gabrielzmong@gmail.com).
 The name `Akao` is in reference to [Rion Akao](https://sakamoto-days.fandom.com/wiki/Rion_Akao), a close friend of [Taro Sakamoto](https://sakamoto-days.fandom.com/wiki/Taro_Sakamoto) and [Yoichi Nagumo](https://sakamoto-days.fandom.com/wiki/Yoichi_Nagumo) from their time as students at [JCC](https://sakamoto-days.fandom.com/wiki/Japan_Clear_Creation). She first appears in the [Taro Sakamoto's Past Arc](https://sakamoto-days.fandom.com/wiki/Taro_Sakamoto%27s_Past_Arc) under the ongoing manga series [Sakamoto Days](https://sakamoto-days.fandom.com/wiki/Sakamoto_Days_Wiki).
 
 <div align="center">
-    <img src="./asset/reference/akao.webp">
+    <img src="./asset/logo/akao.webp">
 </div>
 
 ## Legal Disclaimer
