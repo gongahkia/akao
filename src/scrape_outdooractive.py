@@ -62,8 +62,8 @@ async def scrape_routes(url, threshold=None):
                         'location': '',
                         'country': 'Singapore',
                         'route_activity_type': '',
-                        'route_distance': route_distance,
-                        'route_elevation_gain': route_elevation_gain,
+                        'route_distance': route_distance.lstrip('Distance').strip(),
+                        'route_elevation_gain': route_elevation_gain.lstrip('Ascent').strip(),
                         'route_terrain_type': route_terrain_type,
                         'route_number_views': ''
                     }
