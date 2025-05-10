@@ -58,5 +58,5 @@ if __name__ == "__main__":
             "threshold": 100,
         },
     }
-    filepath = "../data/routes.json"
+    filepath = "../akao-app/src/static/routes.json"
     asyncio.run(main(url_map, filepath))

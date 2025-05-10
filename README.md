@@ -20,7 +20,7 @@ Use the live website [***here***]().
 
 ## Stack
 
-* *Frontend*: [Svelte](https://svelte.dev/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* *Frontend*: [Svelte](https://svelte.dev/), [Vercel](https://vercel.com/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * *Backend*: [Github Actions](https://github.com/features/actions), [Python](https://www.python.org/)
 * *Package*: [Docker](https://www.docker.com/)
 
