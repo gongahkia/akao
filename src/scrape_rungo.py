@@ -36,13 +36,13 @@ async def scrape_routes(url, threshold=None):
                     'ID': str(route_id),
                     'route_name': route_name,
                     'route_url': route_url,
-                    'location': '',
+                    'location': '-',
                     'country': 'Singapore',
-                    'route_activity_type': '',
+                    'route_activity_type': '-',
                     'route_distance': route_distance,
-                    'route_elevation_gain': '',
+                    'route_elevation_gain': '-',
                     'route_terrain_type': route_terrain_type,
-                    'route_number_views': ''
+                    'route_number_views': '-'
                 }
                 all_routes.append(route_template)
                 print(f'{len(all_routes)} scraped routes from {current_url}')

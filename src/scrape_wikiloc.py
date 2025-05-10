@@ -52,12 +52,12 @@ async def scrape_routes(url, threshold=None):
                     'route_name': route_name,
                     'route_url': route_url,
                     'location': location.lstrip('near '),
-                    'country': '',
+                    'country': '-',
                     'route_activity_type': route_activity_type.rstrip('Save to a List'),
                     'route_distance': distance,
                     'route_elevation_gain': elevation,
-                    'route_terrain_type': '',
-                    'route_number_views': ''
+                    'route_terrain_type': '-',
+                    'route_number_views': '-'
                 }
                 all_routes.append(route_template)
                 print(f'{len(all_routes)} scraped routes from {current_url}')
