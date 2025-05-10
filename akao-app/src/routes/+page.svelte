@@ -11,9 +11,17 @@
 
 <main class="min-h-screen bg-pastelBlue flex flex-col">
   <h1 class="text-3xl font-bold text-center my-8 text-blue-900">Akao</h1>
-  <p>Find routes in Singapore</p>
+  <figure class="mb-8 flex flex-col items-center">
+    <blockquote class="text-xl italic font-medium text-center text-gray-800 bg-white/70 rounded-lg px-6 py-4 border-l-4 border-blue-300 shadow max-w-2xl mx-auto">
+      History isn’t just in books; it’s in the trails we tread and the stories we tell.
+    </blockquote>
+    <figcaption class="mt-4 text-center text-gray-600">
+      &mdash; <span class="font-semibold">Beau Miles</span>
+    </figcaption>
+  </figure>
   <RouteTable {routes} />
   <footer class="mt-auto py-4 text-center bg-pastelYellow text-gray-700">
-    Made with <span aria-label="heart" role="img">❤️</span> by <a class="underline text-blue-700" href="https://gabrielongzm.com" target="_blank" rel="noopener">Gabriel Ong</a>.
+    Made with <span aria-label="heart" role="img">❤️</span> by 
+    <a class="underline text-blue-700" href="https://gabrielongzm.com" target="_blank" rel="noopener">Gabriel Ong</a>.
   </footer>
 </main>
