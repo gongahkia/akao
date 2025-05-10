@@ -18,9 +18,11 @@
       &mdash; <span class="font-semibold">Beau Miles</span>
     </figcaption>
   </figure>
-  <div class="mb-8 text-center bg-pastelYellow text-gray-700 py-4 rounded-lg shadow max-w-xl mx-auto">
+  <div class="mb-8 text-center bg-pastelYellow text-gray-700 py-4 rounded-lg shadow max-w-xl mx-auto mx-16">
     Made with <span aria-label="heart" role="img">❤️</span> by 
     <a class="underline text-blue-700" href="https://gabrielongzm.com" target="_blank" rel="noopener">Gabriel Ong</a>.
+    <br>
+    Source code <a class="underline text-blue-700" href="https://github.com/gongahkia/akao" target="_blank" rel="noopener">here</a>.
   </div>
   <RouteTable {routes} />
 </main>

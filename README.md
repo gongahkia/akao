@@ -1,5 +1,6 @@
 [![](https://img.shields.io/badge/akao_1.0.0-passing-green)](https://github.com/gongahkia/akao/releases/tag/1.0.0) 
 ![](https://github.com/gongahkia/akao/actions/workflows/scrape-to-local.yml/badge.svg)
+![](https://deploy-badge.vercel.app/vercel/akao-lyart)
 
 # `Akao`
 
@@ -7,7 +8,7 @@
 
 ## Usage
 
-Use the live website [***here***]().
+Use the live website [***here***](https://akao-lyart.vercel.app/).
 
 [Sites](#coverage) are scraped monthly on [SGT Monday 12am](#architecture).
 
