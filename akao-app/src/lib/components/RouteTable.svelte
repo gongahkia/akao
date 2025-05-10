@@ -62,6 +62,7 @@
           <th class="px-3 py-2 font-semibold">Name</th>
           <th class="px-3 py-2 font-semibold">Activity</th>
           <th class="px-3 py-2 font-semibold">Location</th>
+          <th class="px-3 py-2 font-semibold">Country</th>
           <th class="px-3 py-2 font-semibold">Distance (km)</th>
           <th class="px-3 py-2 font-semibold">Elevation (m)</th>
           <th class="px-3 py-2 font-semibold">Terrain</th>
@@ -75,6 +76,7 @@
             <td class="px-3 py-2">{route.route_name}</td>
             <td class="px-3 py-2">{route.route_activity_type}</td>
             <td class="px-3 py-2">{route.location}</td>
+            <td class="px-3 py-2">{route.country}</td>
             <td class="px-3 py-2">{route.route_distance}</td>
             <td class="px-3 py-2">{route.route_elevation_gain}</td>
             <td class="px-3 py-2">{route.route_terrain_type}</td>
@@ -93,7 +95,7 @@
         {/each}
         {#if filteredRoutes.length === 0}
           <tr>
-            <td class="px-3 py-6 text-center text-gray-400" colspan="8">
+            <td class="px-3 py-6 text-center text-gray-400" colspan="9">
               No routes found.
             </td>
           </tr>
