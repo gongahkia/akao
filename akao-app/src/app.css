@@ -1,3 +1,62 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --pastel-blue: #e0f2fe;
+  --pastel-yellow: #fef9c3;
+  --pastel-pink: #fce7f3;
+  --pastel-green: #d1fae5;
+  --pastel-purple: #ede9fe;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--pastel-blue)] text-gray-800 font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  table {
+    @apply w-full bg-white rounded-lg shadow-md overflow-hidden;
+  }
+  thead {
+    @apply bg-[var(--pastel-yellow)];
+  }
+  th, td {
+    @apply px-4 py-2 text-left align-top;
+  }
+  th {
+    @apply font-semibold text-gray-700;
+  }
+  tr:nth-child(even) {
+    @apply bg-[var(--pastel-green)];
+  }
+  tr:hover {
+    @apply bg-[var(--pastel-pink)] transition-colors;
+  }
+}
+
+@layer components {
+  input, select {
+    @apply border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-300 transition;
+    background-color: var(--pastel-purple);
+  }
+  button {
+    @apply bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded shadow transition;
+  }
+}
+
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 8px;
+    background: var(--pastel-yellow);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--pastel-pink);
+    border-radius: 4px;
+  }
+}
