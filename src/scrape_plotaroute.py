@@ -50,10 +50,11 @@ async def scrape_routes(url, threshold=None):
                 tds = await row.query_selector_all('td')
                 if len(tds) < 10:
                     continue
+                route_url = await (await tds[1].query_selector('a')).get_attribute('href') if await tds[1].query_selector('a') else None
                 route_template = {
                     'ID': await tds[0].inner_text(),
                     'route_name': await tds[1].inner_text(),
-                    'route_url': await (await tds[1].query_selector('a')).get_attribute('href') if await tds[1].query_selector('a') else None,
+                    'route_url': f'https://www.plotaroute.com{route_url}',
                     'location': await tds[2].inner_text(),
                     'country': await tds[3].inner_text(),
                     'route_activity_type': await tds[5].inner_text(),
