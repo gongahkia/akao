@@ -8,7 +8,6 @@
     routes = await res.json();
   });
 </script>
-
 <main class="min-h-screen bg-pastelBlue flex flex-col">
   <h1 class="text-3xl font-bold text-center my-8 text-blue-900">Akao</h1>
   <figure class="mb-8 flex flex-col items-center">
@@ -19,9 +18,9 @@
       &mdash; <span class="font-semibold">Beau Miles</span>
     </figcaption>
   </figure>
-  <RouteTable {routes} />
-  <footer class="mt-auto py-4 text-center bg-pastelYellow text-gray-700">
+  <div class="mb-8 text-center bg-pastelYellow text-gray-700 py-4 rounded-lg shadow max-w-xl mx-auto">
     Made with <span aria-label="heart" role="img">❤️</span> by 
     <a class="underline text-blue-700" href="https://gabrielongzm.com" target="_blank" rel="noopener">Gabriel Ong</a>.
-  </footer>
+  </div>
+  <RouteTable {routes} />
 </main>
