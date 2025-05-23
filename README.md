@@ -1,6 +1,9 @@
 [![](https://img.shields.io/badge/akao_1.0.0-passing-green)](https://github.com/gongahkia/akao/releases/tag/1.0.0) 
 ![](https://github.com/gongahkia/akao/actions/workflows/scrape-to-local.yml/badge.svg)
-![](https://deploy-badge.vercel.app/vercel/akao-lyart)
+![](https://img.shields.io/badge/akao_1.0.0-deployment_down-orange)
+
+> [!WARNING]  
+> [`Akao`](https://github.com/gongahkia/akao)'s Vercel deployment is inactive as of 23 May 2025.  
 
 # `Akao`
 
